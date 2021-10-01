@@ -1,5 +1,19 @@
-const a = 1;
-const b = "our branch lesson1";
-const c = 3;
-const d = 5;
-const j = 6;
+let title = "project",
+  screens = "Simple, Complex, Interactive",
+  screenPrice = 5,
+  rollback = 65,
+  fullPrice = 100,
+  adaptive = true;
+
+console.log(title);
+console.log(fullPrice);
+console.log(adaptive);
+console.log(screens.length);
+console.log(
+  `Стоимость верстки экранов ${screenPrice} рублей/ долларов/гривен/юани`
+);
+console.log(
+  `Стоимость разработки сайта ${fullPrice} рублей/ долларов/гривен/юани`
+);
+
+alert("Hello world");
