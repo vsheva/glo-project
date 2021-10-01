@@ -1,2 +1,3 @@
-const a = 1;
-const b = "our branch lesson1";
+let title, screens, screenPrice, rollback, fullPrice, adaptive;
+
+alert("Hello world");
