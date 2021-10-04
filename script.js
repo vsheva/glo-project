@@ -3,7 +3,7 @@ let title = prompt('Как называется ваш проект?'),
     screens = prompt('Какие типы экранов нужно разработать?'),
     screenPrice = prompt('Сколько будет стоить данная работа?'),
     rollback = 50,
-    adaptive = confirm('“Нужен ли адаптив на сайте?');
+    adaptive = confirm('Нужен ли адаптив на сайте?');
 
 let service1 = prompt('Какой дополнительный тип услуги нужен?'),
     servicePrice1 = prompt('Сколько это будет стоить?'),
@@ -11,17 +11,17 @@ let service1 = prompt('Какой дополнительный тип услуг
     servicePrice2 = prompt('Сколько это будет стоить?');
 
 let fullPrice = screenPrice + servicePrice1 + servicePrice2;
-let servicePercentPrice = Math.ceil(fullPrice * rollback / 100);
+let servicePercentPrice = Math.ceil(fullPrice-(fullPrice * rollback / 100));
 
 
 if (fullPrice >= 30000) {
-    console.log('you get discount 10%');
+    console.log('скидка 10%');
 } else if (fullPrice >= 15000 && fullprice < 30000) {
-    console.log('you get discount 5%');
+    console.log('скидка 5%');
 } else if (fullPrice >= 0 && fullprice < 15000) {
-    console.log('no discount for you');
+    console.log('Скидка не предусмотрена');
 } else if (fullPrice < 0) {
-    console.log('Something went wrong');
+    console.log('Что то пошло не так');
 }
 
 console.log(servicePercentPrice);
