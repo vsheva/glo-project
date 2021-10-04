@@ -25,7 +25,7 @@ if (fullPrice >= 30000) {
     console.log('Что то пошло не так');
 }
 
-console.log(servicePercentPrice);
+
 console.log(title);
 console.log(fullPrice);
 console.log(adaptive);
