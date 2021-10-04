@@ -3,7 +3,7 @@ let title = prompt('What is the name of your project?'),
     screens = prompt('What type of screens should be developed?'),
     screenPrice = prompt('How much will this work cost?'),
     rollback = 50,
-    adaptive = prompt('Do I need an adaptive on the site?');
+    adaptive = confirm('Do I need an adaptive on the site?');
 
 let service1 = prompt('What additional services are needed?'),
     servicePrice1 = prompt('What is the price of the service?'),
