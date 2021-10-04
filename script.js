@@ -1,14 +1,14 @@
 'use strict'
-let title = prompt('What is the name of your project?'),
-    screens = prompt('What type of screens should be developed?'),
-    screenPrice = prompt('How much will this work cost?'),
+let title = prompt('Как называется ваш проект?'),
+    screens = prompt('Какие типы экранов нужно разработать?'),
+    screenPrice = prompt('Сколько будет стоить данная работа?'),
     rollback = 50,
-    adaptive = confirm('Do I need an adaptive on the site?');
+    adaptive = confirm('“Нужен ли адаптив на сайте?');
 
-let service1 = prompt('What additional services are needed?'),
-    servicePrice1 = prompt('What is the price of the service?'),
-    service2 = prompt('What additional services are needed?'),
-    servicePrice2 = prompt('What is the price of the service?');
+let service1 = prompt('Какой дополнительный тип услуги нужен?'),
+    servicePrice1 = prompt('Сколько это будет стоить?'),
+    service2 = prompt('Какой дополнительный тип услуги нужен?'),
+    servicePrice2 = prompt('Сколько это будет стоить?');
 
 let fullPrice = screenPrice + servicePrice1 + servicePrice2;
 let servicePercentPrice = Math.ceil(fullPrice * rollback / 100);
