@@ -19,10 +19,12 @@ switch (lang) {
 }
 
 
-let wdaysRu = {'ru': 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'};
-console.log(wdaysRu['ru']);
-let wdaysEng= {'en':'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'};
-console.log(wdaysEng['en']);
+let  wdays = {
+{'ru': 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'},
+{'en':'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'},
+};
+console.log(wdays['ru']);
+console.log (wdays['en']);
 
 
 let namePerson;
