@@ -30,11 +30,9 @@ let servicePercentPrice = function () {
     return servicePercentPrice = Math.ceil(fullPrice - (fullPrice * rollback / 100));
 }
 
-
 let showTypeOf = function (variable) {
     console.log(variable, typeof variable);
 }
-
 
 const getRollbackMessage = function (price) {
     if (price >= 30000) {
