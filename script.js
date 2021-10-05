@@ -18,13 +18,17 @@ switch (lang) {
         break;
 }
 
-let langArray = [];
-lang = 'ru';
-langArray['ru'] = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'];
-langArray['en'] = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-console.log(langArray[lang]);
+
+let wdaysRu = {'ru': 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'};
+console.log(wdaysRu['ru']);
+let wdaysEng= {'en':'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'};
+console.log(wdaysEng['en']);
+
 
 let namePerson;
 (namePerson == 'Артем') ? console.log('директор') :
     (namePerson == 'Александр') ? console.log('преподаватель') :
-        console.log('студент')
+        console.log('студент');
+
+
+
