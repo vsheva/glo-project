@@ -33,9 +33,7 @@ const allServicePrices = function () {
             service1 = prompt('Какой дополнительный тип услуги нужен?')
         } else if (i === 1) {
             service2 = prompt('Какой дополнительный тип услуги нужен?')
-
         }
-
         let servicePrice = prompt('Сколько это будет стоить?')
 
         while (!isNumber(servicePrice)) {
@@ -77,27 +75,16 @@ const getRollbackMessage = function (price) {
 }
 
 asking();
-allServicePrices();
 fullPrice = getFullPrice();
-//servicePercentPrice();
 title = getTitle();
+allServicePrices();
 
-
-
-showTypeOf(title);
-showTypeOf(screenPrice);
-showTypeOf(adaptive);
-
-console.log("allServicePrices", allServicePrices);
 
 console.log(getRollbackMessage(fullPrice));
 console.log(screens.toLowerCase().split(" "));
 console.log(servicePercentPrice());
 console.log(`Стоимость верстки экранов ${screenPrice} долларов`);
 console.log(`Стоимость разработки сайта ${fullPrice} долларов`);
-
-
-
 
 
 
