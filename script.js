@@ -8,15 +8,12 @@ arr.forEach(item => {
     }
 });
 
-function isSimp(n) {
+function isPrimeNumber(n) {
     for (let i = 2; i * i <= n; i == 2 ? i++ : i += 2) if (n % i == 0) return false;
     return n > 1;
 }
 
-const res = [...Array(101)].reduce((a, _, i) => a.concat(isSimp(i) ? `Делители числа ${i}: 1 и ${i}` : []) , []).join('\n');
-
-
-
+const res = [...Array(41)].reduce((a, _, i) => a.concat(isPrimeNumber(i) ? `Делители числа ${i}: 1 и ${i}` : []) , []).join('\n');
 
 
 
