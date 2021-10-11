@@ -3,7 +3,7 @@
 let arr = ['25', '44', '20', '5', '0', '777', '2000'];
 
 arr.forEach(item => {
-    if (item.startsWith("2") || item.startsWith("4")) {
+    if (item.startsWith('2') || item.startsWith('4')) {
         console.log(item);
     }
 });
