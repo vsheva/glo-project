@@ -1,22 +1,19 @@
 'use strict'
 
-let screenPrice = prompt('Сколько будет стоить данная работа?'
+let arr = ['25', '44', '20', '5', '0', '777', '2000'];
 
-let isNumber = function (num) {
-    if (!isNaN(parseFloat(num)) && isFinite(num) && (num.trim() != '')) {
-        return number;
+arr.forEach(item => {
+    if (item.startsWith("2") || item.startsWith("4")) {
+        console.log(item);
     }
-};
+});
 
-const asking = function () {
-    if (!isNumber(screenPrice)) {
-       return screenPrice = prompt('Сколько будет стоить данная работа?');
-    }
-};
+function isSimp(n) {
+    for (let i = 2; i * i <= n; i == 2 ? i++ : i += 2) if (n % i == 0) return false;
+    return n > 1;
+}
 
-asking();
-let number =isNumber(screenPrice);
-console.log(number);
+const res = [...Array(101)].reduce((a, _, i) => a.concat(isSimp(i) ? `Делители числа ${i}: 1 и ${i}` : []) , []).join('\n');
 
 
 
@@ -24,27 +21,3 @@ console.log(number);
 
 
 
-let number1 = function (num) {
-    if (isNumber(num)) {
-        return Number(num);
-    }
-    return 0;
-else
-    if (!isNaN(parseFloat(num)) && isFinite(num)) {
-        return Number(num);
-    }
-};
-
-const asking = function () {
-    let price = prompt('Сколько это будет стоить?');
-
-    while (!isNumber(price)) {
-        price = prompt('Сколько это будет стоить?');
-    }
-};
-
-
-asking();
-
-let number = number1(price);
-console.log(number);
