@@ -1,15 +1,4 @@
 'use strict'
-// let title,
-//     screens,
-//     screenPrice,
-//     adaptive,
-//     service1,
-//     service2,
-//     allServicePrices,
-//     rollback = 10,
-//     servicePercentPrice,
-//     fullPrice;
-
 
 const appData = {
     title: '',
@@ -104,12 +93,6 @@ console.log(appData.fullPrice);
 console.log(appData.servicePercentPrice);
 
 
-// console.log(screens.toLowerCase().split(" "));
-// console.log('Стоимость доп.услуг', allServicePrices);
-// console.log(getRollbackMessage(fullPrice));
-// console.log('Cтоимость разработки - откат', servicePercentPrice);
-// console.log('Общая стоимость', fullPrice);
-// console.log(screens.split(', '));
 
 
 
