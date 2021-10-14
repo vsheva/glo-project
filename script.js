@@ -16,9 +16,8 @@ let appData = {
         appData.asking();
         appData.allServicePrices = appData.getAllServicePrices();
         appData.fullPrice = appData.getFullPrice();
-        appData.getServicePercentPrice();
+        appData.servicePercentPrices = appData.getServicePercentPrices();
         appData.title = appData.getTitle();
-        appData.getRollbackMessage();
         appData.logger();
     },
 
@@ -66,7 +65,7 @@ let appData = {
         return appData.screenPrice + appData.allServicePrices;
     },
 
-    getServicePercentPrice: function () {
+    getServicePercentPrices: function () {
         return Math.ceil(appData.fullPrice - (appData.fullPrice * appData.rollback / 100));
     },
 
@@ -88,17 +87,20 @@ let appData = {
         }
     },
 
-    logger() {
+    logger: function() {
         for (let key in appData) {
-            console.log(`Ключ: ${key} значение: ${appData[key]} `)
+            console.log(`Ключ обьекта: ${key} `)
         }
     },
-
-
 }
 
-
 appData.start();
+
+
+
+
+
+
 
 // appData.isNumber();
 // appData.asking();
@@ -111,6 +113,9 @@ appData.start();
 //
 // console.log(appData.fullPrice);
 // console.log(appData.servicePercentPrice);
+
+
+
 
 
 
