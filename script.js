@@ -11,6 +11,17 @@ let appData = {
     rollback: 10,
     servicePercentPrice: 0,
     fullPrice: 0,
+
+    start: function () {
+        appData.asking();
+        appData.allServicePrices = appData.getAllServicePrices();
+        appData.fullPrice = appData.getFullPrice();
+        appData.servicePercentPrice = appData.getServicePercentPrice();
+        appData.title = appData.getTitle();
+        appData.getRollbackMessage();
+        appData.logger();
+    },
+
     asking: function () {
         appData.title = prompt('Как назывется ваш проект?', 'Калькулятор верстки');
         appData.screens = prompt('Какие типы экранов нужно разработать?', 'Простые, Сложные');
@@ -60,7 +71,7 @@ let appData = {
     },
 
     getTitle: function () {
-        if (!appData.title) return title;
+        if (!appData.title) return appData.title;
         //return appData.title[0].toUpperCase() + appData.title.slice(1);
         return appData.title.trim()[0].toUpperCase() + appData.title.trim().substr(1).toLowerCase();
     },
@@ -85,15 +96,7 @@ let appData = {
         }
     },
 
-    start: function () {
-        appData.asking();
-        appData.allServicePrices = appData.getAllServicePrices();
-        appData.fullPrice = appData.getFullPrice();
-        appData.servicePercentPrice = appData.getServicePercentPrice();
-        appData.title = appData.getTitle();
-        appData.getRollbackMessage();
-        appData.logger();
-    }
+
 
 }
 
