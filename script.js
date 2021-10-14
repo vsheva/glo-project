@@ -42,7 +42,7 @@ let appData = {
 
             let servicePrice = prompt('Сколько это будет стоить?');
 
-            while (!appData.isNumber(servicePrice)) {                                          //
+            while (!appData.isNumber(servicePrice)) {
                 servicePrice = prompt('Сколько это будет стоить?');
             }
 
@@ -87,7 +87,7 @@ let appData = {
     },
 
 
-    start: function () {                                                    //внизу
+    start: function () {
         appData.asking();                                                   // удалям ненужное
         appData.allServicePrices = appData.getAllServicePrices();
         appData.fullPrice = appData.getFullPrice();
