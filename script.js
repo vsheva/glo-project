@@ -61,8 +61,8 @@ let appData = {
 
     getTitle: function () {
         if (!appData.title) return title;
-        return appData.title[0].toUpperCase() + appData.title.slice(1);
-        //return appData.title.trim()[0].toUpperCase() + appData.title.trim().substr(1).toLowerCase();
+        //return appData.title[0].toUpperCase() + appData.title.slice(1);
+        return appData.title.trim()[0].toUpperCase() + appData.title.trim().substr(1).toLowerCase();
     },
 
     getRollbackMessage: function (price) {
