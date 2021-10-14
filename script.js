@@ -16,7 +16,7 @@ let appData = {
         appData.asking();
         appData.allServicePrices = appData.getAllServicePrices();
         appData.fullPrice = appData.getFullPrice();
-        appData.servicePercentPrice = appData.getServicePercentPrice();
+        appData.getServicePercentPrice();
         appData.title = appData.getTitle();
         appData.getRollbackMessage();
         appData.logger();
@@ -71,7 +71,7 @@ let appData = {
     },
 
     getTitle: function () {
-        if (!appData.title) return appData.title;
+        if (!appData.title) return title;
         //return appData.title[0].toUpperCase() + appData.title.slice(1);
         return appData.title.trim()[0].toUpperCase() + appData.title.trim().substr(1).toLowerCase();
     },
@@ -88,17 +88,15 @@ let appData = {
         }
     },
 
-
-    logger: function () {
-
+    logger() {
         for (let key in appData) {
             console.log(`Ключ: ${key} значение: ${appData[key]} `)
         }
     },
 
 
-
 }
+
 
 appData.start();
 
