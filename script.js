@@ -12,14 +12,6 @@ let appData = {
     servicePercentPrice: 0,
     fullPrice: 0,
 
-    start: function () {
-        appData.asking();
-        appData.allServicePrices = appData.getAllServicePrices();
-        appData.fullPrice = appData.getFullPrice();
-        appData.servicePercentPrices = appData.getServicePercentPrices();
-        appData.title = appData.getTitle();
-        appData.logger();
-    },
 
     asking: function () {
         appData.title = prompt('Как назывется ваш проект?', 'Калькулятор верстки');
@@ -50,7 +42,7 @@ let appData = {
 
             let servicePrice = prompt('Сколько это будет стоить?');
 
-            while (!appData.isNumber(servicePrice)) {                                          //                  //изменил do while
+            while (!appData.isNumber(servicePrice)) {                                          //
                 servicePrice = prompt('Сколько это будет стоить?');
             }
 
@@ -87,14 +79,33 @@ let appData = {
         }
     },
 
-    logger: function() {
+
+    logger: function () {                                                  // внимательно
         for (let key in appData) {
-            console.log(`Ключ обьекта: ${key} `)
+            console.log(key);
         }
     },
+
+
+    start: function () {                                                    //внизу
+        appData.asking();                                                   // удалям ненужное
+        appData.allServicePrices = appData.getAllServicePrices();
+        appData.fullPrice = appData.getFullPrice();
+        appData.servicePercentPrices = appData.getServicePercentPrices();
+        appData.title = appData.getTitle();
+        appData.logger();
+    },
+
 }
 
 appData.start();
+
+
+
+
+
+
+
 
 
 
@@ -113,11 +124,6 @@ appData.start();
 //
 // console.log(appData.fullPrice);
 // console.log(appData.servicePercentPrice);
-
-
-
-
-
 
 
 
