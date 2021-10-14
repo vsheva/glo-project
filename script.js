@@ -1,6 +1,6 @@
 'use strict'
 
-const appData = {
+let appData = {
     title: '',
     screens: '',
     screenPrice: 0,
@@ -17,13 +17,9 @@ const appData = {
 
         do {
             appData.screenPrice = prompt('Сколько будет стоить данная работа?');
-        } while (!isNumber(appData.screenPrice));
+        } while (!appData.isNumber(appData.screenPrice));  //
 
         appData.adaptive = confirm('Нужен ли адаптив на сайте?');
-    },
-
-    start: function(){
-        asking();
     },
 
     isNumber: function (num) {
@@ -44,7 +40,7 @@ const appData = {
 
             let servicePrice = prompt('Сколько это будет стоить?');
 
-            while (!isNumber(servicePrice)) {                                                            //изменил do while
+            while (!appData.isNumber(servicePrice)) {                                          //                  //изменил do while
                 servicePrice = prompt('Сколько это будет стоить?');
             }
 
@@ -60,8 +56,6 @@ const appData = {
     },
 
     getServicePercentPrice: function () {
-        // console.log('fullPrice ', typeof fullPrice);
-        // console.log('rollback', rollback);
         return Math.ceil(appData.fullPrice - (appData.fullPrice * appData.rollback / 100));
     },
 
@@ -81,21 +75,39 @@ const appData = {
         } else if (price < 0) {
             return ('Что то пошло не так');
         }
+    },
+
+
+    logger: function () {
+
+        for (let key in appData) {
+            console.log(`Ключ: ${key} значение: ${appData[key]} `)
+        }
+    },
+
+    start: function () {
+        appData.asking();
+        appData.getAllServicePrices();
+        appData.getFullPrice();
+        appData.getServicePercentPrice();
+        appData.getTitle();
+        appData.getRollbackMessage();
+        appData.logger();
     }
 
 }
 
-
-appData.asking();
 appData.start();
-appData.isNumber();
-appData.allServicePrices = getAllServicePrices();
-appData.fullPrice = getFullPrice();
-appData.servicePercentPrice = getServicePercentPrice();
-appData.title = getTitle();
 
-console.log(appData.fullPrice);
-console.log(appData.servicePercentPrice);
+// appData.isNumber();
+// appData.asking();
+// appData.allServicePrices = getAllServicePrices();
+// appData.fullPrice = getFullPrice();
+// appData.servicePercentPrice = getServicePercentPrice();
+// appData.title = getTitle();
+//
+// console.log(appData.fullPrice);
+// console.log(appData.servicePercentPrice);
 
 
 
