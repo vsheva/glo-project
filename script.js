@@ -87,10 +87,10 @@ let appData = {
 
     start: function () {
         appData.asking();
-        appData.getAllServicePrices();
-        appData.getFullPrice();
-        appData.getServicePercentPrice();
-        appData.getTitle();
+        const allServicePrices = appData.getAllServicePrices();
+        const fullPrice = appData.getFullPrice();
+        const servicePercentPrice = appData.getServicePercentPrice();
+        const title = appData.getTitle();
         appData.getRollbackMessage();
         appData.logger();
     }
