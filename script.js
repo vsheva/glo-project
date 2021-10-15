@@ -91,7 +91,7 @@ let appData = {
 
     logger: function () {                                                  // внимательно
         for (let key in appData) {
-            console.log(key);
+            console.log(key + ' ' + appData[key]);
         }
     },
 
