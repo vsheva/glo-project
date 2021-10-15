@@ -62,7 +62,7 @@ let appData = {
     },
 
     getTitle: function () {
-        if (!appData.title) return title;
+        if (!appData.title) return appData.title;
         //return appData.title[0].toUpperCase() + appData.title.slice(1);
         return appData.title.trim()[0].toUpperCase() + appData.title.trim().substr(1).toLowerCase();
     },
@@ -83,7 +83,7 @@ let appData = {
         appData.asking();                                                   // удалям ненужное
         appData.allServicePrices = appData.getAllServicePrices();
         appData.fullPrice = appData.getFullPrice();
-        appData.servicePercentPrices = appData.getServicePercentPrices();
+        appData.servicePercentPrice = appData.getServicePercentPrices();
         appData.title = appData.getTitle();
         appData.logger();
     },
