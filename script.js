@@ -54,7 +54,7 @@ let appData = {
 
 
     getFullPrice: function () {
-        return appData.screenPrice + appData.allServicePrices;
+        return +appData.screenPrice + appData.allServicePrices;
     },
 
     getServicePercentPrices: function () {
@@ -79,14 +79,6 @@ let appData = {
         }
     },
 
-
-    logger: function () {                                                  // внимательно
-        for (let key in appData) {
-            console.log(key);
-        }
-    },
-
-
     start: function () {
         appData.asking();                                                   // удалям ненужное
         appData.allServicePrices = appData.getAllServicePrices();
@@ -94,6 +86,13 @@ let appData = {
         appData.servicePercentPrices = appData.getServicePercentPrices();
         appData.title = appData.getTitle();
         appData.logger();
+    },
+
+
+    logger: function () {                                                  // внимательно
+        for (let key in appData) {
+            console.log(key);
+        }
     },
 
 }
@@ -124,7 +123,6 @@ appData.start();
 //
 // console.log(appData.fullPrice);
 // console.log(appData.servicePercentPrice);
-
 
 
 
