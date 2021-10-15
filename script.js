@@ -46,7 +46,7 @@ let appData = {
                 servicePrice = prompt('Сколько это будет стоить?');
             }
 
-            sum += servicePrice;
+            sum += Number(servicePrice);
         }
 
         return sum;
