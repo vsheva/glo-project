@@ -12,10 +12,10 @@ let appData = {
     fullPrice: 0,
 
     asking: function () {
-        let title;                                                                                              //appData.title = prompt("Как назывется ваш проект?");
+                                                                                                                 //appData.title =// prompt("Как назывется ваш проект?");
         do {
-            title = prompt('Как называется ваш проект?', 'Калькулятор верстки')
-        } while (appData.isString(title))
+             appData.title = prompt('Как называется ваш проект?', 'Калькулятор верстки')           //поменял название
+        } while (appData.isString(appData.title));                                                                // поменял название
 
 
         for (let i = 0; i < 2; i++) {
@@ -41,7 +41,7 @@ let appData = {
 
             do {
                 name = prompt("Какой дополнительный тип услуги нужен?");
-            } while (appData.isString(title))
+            } while (appData.isString(appData.title))                                                            // поменял название
 
 
             do {
@@ -84,7 +84,7 @@ let appData = {
     },
 
     getTitle: function () {
-        appData.title = appData.title.trim().substr(0).toUpperCase() + appData.title.trim().substr(1).toLowerCase();
+        appData.title = appData.title.trim().charAt(0).toUpperCase() + appData.title.trim().substr(1).toLowerCase();
         //appData.title = appData.title.trim().charAt(0).toUpperCase() + appData.title.trim().substr(1).toLowerCase()
     },
 
@@ -110,6 +110,10 @@ let appData = {
     },
 
     logger: function () {
+        // for (let key in appData) {
+        //     console.log(key + " " + appData[key]);
+        // }
+
         console.log(appData.fullPrice);
         console.log(appData.servicePercentPrice);
         console.log(appData.screens);
