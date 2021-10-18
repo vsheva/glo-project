@@ -1,7 +1,7 @@
 "use strict";
 
 let appData = {
-    title: "",
+    title:'',
     screens: [],
     screenPrice: 0,
     adaptive: true,
@@ -20,7 +20,7 @@ let appData = {
 
         for (let i = 0; i < 2; i++) {
             let name                                                                                            //= prompt("Какие типы экранов нужно разработать?");
-            let servicePrice = 0;
+            let price = 0;
 
             do {
                 name = prompt("Какие типы экранов нужно разработать?");
@@ -28,16 +28,16 @@ let appData = {
 
 
             do {
-                servicePrice = prompt("Сколько будет стоить данная работа?");
-            } while (!appData.isNumber(servicePrice));
+                price = prompt("Сколько будет стоить данная работа?");
+            } while (!appData.isNumber(price));
 
 
-            appData.screens.push({id: i, name: name, servicePrice: servicePrice});                              //можно сократить
+            appData.screens.push({id: i, name: name, price: price});                                             //можно сократить
         }
 
         for (let i = 0; i < 2; i++) {
             let name                                                                                            // = prompt("Какой дополнительный тип услуги нужен?");
-            let servicePrice = 0;
+            let price = 0;
 
             do {
                 name = prompt("Какой дополнительный тип услуги нужен?");
@@ -45,11 +45,11 @@ let appData = {
 
 
             do {
-                servicePrice = prompt("Сколько это будет стоить?");
-            } while (!appData.isNumber(servicePrice));
+                price = prompt("Сколько это будет стоить?");
+            } while (!appData.isNumber(price));
 
 
-            appData.services[name] = +servicePrice;
+            appData.services[name] = +price;
         }
 
         appData.adaptive = confirm("Нужен ли адаптив на сайте?");
@@ -57,7 +57,7 @@ let appData = {
 
     addPrices: function () {
         for (let screen of appData.screens) {
-            appData.screenPrice += +screen.servicePrice;
+            appData.screenPrice += +screen.price;
         }
 
         for (let key in appData.services) {
@@ -151,5 +151,9 @@ appData.start();
 //
 // console.log(appData.fullPrice);
 // console.log(appData.servicePercentPrice);
+
+
+
+
 
 
