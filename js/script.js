@@ -4,17 +4,25 @@ let title = document.getElementsByTagName("h1")[0];
 console.log(title);
 
 
-let handlerBtn = document.getElementsByClassName('handler_btn');
-console.log(handlerBtn);
+let count = document.getElementsByClassName('handler_btn')[0];
+console.log(count);
+let reset = document.getElementsByClassName('handler_btn')[1];
+console.log(reset);
 
 let screenBtn = document.querySelector('.screen-btn');
 console.log(screenBtn);
 
-let elements1 = document.querySelectorAll('.other-items.percent');
-console.log(elements1);
 
-let elements2 = document.querySelectorAll('.other-items.number');
-console.log(elements2);
+let elem1 = document.querySelectorAll('.other-items.percent');
+elem1.forEach(function (elem) {
+    console.log(elem);
+})
+
+
+let elem2 = document.querySelectorAll('.other-items.number');
+elem2.forEach(function (element) {
+    console.log(element);
+})
 
 
 let element3 = document.querySelector(".rollback >.main-controls__range> input")
@@ -39,101 +47,6 @@ console.log(totalCountRollback);
 
 let list = document.querySelectorAll(".screen")
 console.log(list);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // let appData = {
