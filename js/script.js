@@ -4,11 +4,11 @@ let title = document.getElementsByTagName(" h1");
 console.log(title);
 
 
-let buttons = document.getElementsByClassName('handler_btn');
-console.log(buttons);
+let handlerBtn = document.getElementsByClassName('handler_btn');
+console.log(handlerBtn);
 
-let plusButton = document.querySelector('.screen-btn');
-console.log(plusButton);
+let screenBtn = document.querySelector('.screen-btn');
+console.log(screenBtn);
 
 let elements1 = document.querySelectorAll('.other-items.percent');
 console.log(elements1);
@@ -41,8 +41,7 @@ console.log(totalCountRollback);
 
 
 let list =document.querySelectorAll(".screen")
-let listScreen= list.querySelectorAll
-
+console.log(list);
 
 
 
