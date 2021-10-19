@@ -24,8 +24,6 @@ let element4 = document.querySelector(".rollback >.main-controls__range> .range-
 console.log(element4);
 
 
-
-
 let total = document.getElementsByClassName("total-input")[0];
 let totalCount = document.getElementsByClassName("total-input")[1];
 let totalCountOther = document.getElementsByClassName("total-input")[2];
@@ -39,9 +37,70 @@ console.log(totalFullCount);
 console.log(totalCountRollback);
 
 
-
-let list =document.querySelectorAll(".screen")
+let list = document.querySelectorAll(".screen")
 console.log(list);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
