@@ -1,6 +1,6 @@
 "use strict";
 
-let title = document.getElementsByTagName(" h1");
+let title = document.getElementsByTagName("h1")[0];
 console.log(title);
 
 
