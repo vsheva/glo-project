@@ -1,12 +1,49 @@
 "use strict";
 
 let title = document.getElementsByTagName(" h1");
-
 console.log(title);
 
 
 let buttons = document.getElementsByClassName('handler_btn');
 console.log(buttons);
+
+let plusButton = document.querySelector('.screen-btn');
+console.log(plusButton);
+
+let elements1 = document.querySelectorAll('.other-items.percent');
+console.log(elements1);
+
+let elements2 = document.querySelectorAll('.other-items.number');
+console.log(elements2);
+
+
+let element3 = document.querySelector(".rollback >.main-controls__range> input")
+console.log(element3);
+
+let element4 = document.querySelector(".rollback >.main-controls__range> .range-value")
+console.log(element4);
+
+
+
+
+let total = document.getElementsByClassName("total-input")[0];
+let totalCount = document.getElementsByClassName("total-input")[1];
+let totalCountOther = document.getElementsByClassName("total-input")[2];
+let totalFullCount = document.getElementsByClassName("total-input")[3];
+let totalCountRollback = document.getElementsByClassName("total-input")[4];
+
+console.log(total);
+console.log(totalCount);
+console.log(totalCountOther);
+console.log(totalFullCount);
+console.log(totalCountRollback);
+
+
+
+let list =document.querySelectorAll(".screen")
+let listScreen= list.querySelectorAll
+
+
 
 
 
@@ -168,22 +205,6 @@ console.log(buttons);
 //
 //
 //
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // appData.isNumber();
