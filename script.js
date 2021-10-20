@@ -14,5 +14,5 @@ function isPrime(n) {
     return n > 1;
 }
 
-const res = [...Array(41)].reduce((a, _, i) => a.concat(isPrime(i) ? `Делители числа ${i}: 1 и ${i}` : []), []).join('\n');
+const res = [...Array(101)].reduce((a, _, i) => a.concat(isPrime(i) ? `Делители числа ${i}: 1 и ${i}` : []), []).join('\n');
 console.log(res);
