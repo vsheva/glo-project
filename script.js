@@ -2,19 +2,17 @@
 
 let arr = ["2", "33", "455", "88", "99", "100", "25"];
 
-arr.forEach( function(item) {
+arr.forEach(function (item) {
     if (item.startsWith('2') || item.startsWith('4')) {
         console.log(item);
     }
 });
 
-for (let i = 2; i < 100; i++) {
-    let count = 0;
-    for (let j = 2; j <= i && count < 2; j++) {
-        if (i % j == 0) {
-            count++;
-        }
-    }
-    if (count < 2)
-        console.log(i);
+
+function isPrime(n) {
+    for (let i = 2; i * i <= n; i == 2 ? i++ : i += 2) if (n % i == 0) return false;
+    return n > 1;
 }
+
+const res = [...Array(41)].reduce((a, _, i) => a.concat(isPrime(i) ? `Делители числа ${i}: 1 и ${i}` : []), []).join('\n');
+console.log(res);
