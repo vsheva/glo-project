@@ -6,16 +6,9 @@ let resetBtn = document.getElementsByClassName('handler_btn')[1];
 let buttonPlus = document.querySelector('.screen-btn');
 let inputRange = document.querySelector(".rollback >.main-controls__range> input")
 let inputRangeValue = document.querySelector(".rollback >.main-controls__range> .range-value")
-
 let otherItemsPercent = document.querySelectorAll('.other-items.percent');
-otherItemsPercent.forEach(function (elem) {
-    console.log(elem);
-})
-
 let otherItemsNumber = document.querySelectorAll('.other-items.number');
-otherItemsNumber.forEach(function (element) {
-    console.log(element);
-})
+
 
 
 let total = document.getElementsByClassName("total-input")[0];
@@ -25,6 +18,7 @@ let fullTotalCount = document.getElementsByClassName("total-input")[3];
 let totalCountRollback = document.getElementsByClassName("total-input")[4];
 
 let screens = document.querySelectorAll(".screen")
+
 
 
 let appData = {
@@ -41,17 +35,16 @@ let appData = {
     fullPrice: 0,
     init: function () {
         appData.addTitle();
-        startBtn.addEventListener("click", appData.start)
+        startBtn.addEventListener("click",  appData.start)
         buttonPlus.addEventListener("click", appData.addScreenBlock)
     },
-    addTitle: function () {
-        document.title = title.textContent;
+    addTitle: function() {
+        document.title =title.textContent;
     },
 
     start: function () {
         appData.addScreens()
         appData.addServices()
-
         appData.addPrices();
         // appData.getServicePercentPrices();
 
@@ -65,7 +58,7 @@ let appData = {
         fullTotalCount.value = appData.fullPrice
     },
 
-    addScreens: function () {
+    addScreens: function() {
         screens = document.querySelectorAll(".screen")
 
         screens.forEach(function (screen, index) {
@@ -82,22 +75,22 @@ let appData = {
         console.log(appData.screens);
     },
 
-    addServices: function () {
-        otherItemsPercent.forEach(function (item) {
+    addServices: function() {
+      otherItemsPercent.forEach(function(item) {
+          const check = item.querySelector('input[type=checkbox]')
+          const label = item.querySelector('label')
+          const input = item.querySelector('input[type=text]')
+
+          if(check.checked){
+              appData.servicesPercent[label.textContent] = +input.value
+          }
+      })
+        otherItemsNumber.forEach(function(item) {
             const check = item.querySelector('input[type=checkbox]')
             const label = item.querySelector('label')
             const input = item.querySelector('input[type=text]')
 
-            if (check.checked) {
-                appData.servicesPercent[label.textContent] = +input.value
-            }
-        })
-        otherItemsNumber.forEach(function (item) {
-            const check = item.querySelector('input[type=checkbox]')
-            const label = item.querySelector('label')
-            const input = item.querySelector('input[type=text]')
-
-            if (check.checked) {
+            if(check.checked){
                 appData.servicesNumber[label.textContent] = +input.value
             }
         })
@@ -109,7 +102,6 @@ let appData = {
         screens[screens.length - 1].after(cloneScreen);
     },
 
-
     addPrices: function () {
         for (let screen of appData.screens) {
             appData.screenPrice += +screen.price;
@@ -120,29 +112,17 @@ let appData = {
         }
 
         for (let key in appData.servicesPercent) {
-            appData.ServicePricesPercent += +appData.screenPrice * (appData.servicesPercent[key] / 100)
+            appData.ServicePricesPercent += appData.screenPrice * (appData.servicesPercent[key]/100)
         }
         appData.fullPrice = +appData.screenPrice + appData.servicePricesNumber + appData.servicePricesPercent
 
     },
-
-    // isNumber: function (num) {
-    //     return !isNaN(parseFloat(num)) && isFinite(num);
-    // },
-
-    // isString: function (str) {
-    //     return !isNaN(parseFloat(str)) && isFinite(str);
-    // },
-
-    // getFullPrice: function () {
-    // },
 
     getServicePercentPrices: function () {
         appData.servicePercentPrice = Math.ceil(
             appData.fullPrice - (appData.fullPrice * appData.rollback) / 100
         );
     },
-
 
     getRollbackMessage: function (price) {
         if (price >= 30000) {
@@ -165,27 +145,6 @@ let appData = {
 };
 
 appData.init();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
