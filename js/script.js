@@ -24,15 +24,7 @@ let totalCountOther = document.getElementsByClassName("total-input")[2];
 let fullTotalCount = document.getElementsByClassName("total-input")[3];
 let totalCountRollback = document.getElementsByClassName("total-input")[4];
 
-// console.log(total);
-// console.log(totalCount);
-// console.log(totalCountOther);
-// console.log(fullTotalCount);
-// console.log(totalCountRollback);
-
-
 let screens = document.querySelectorAll(".screen")
-
 
 
 let appData = {
@@ -49,11 +41,11 @@ let appData = {
     fullPrice: 0,
     init: function () {
         appData.addTitle();
-        startBtn.addEventListener("click",  appData.start)
+        startBtn.addEventListener("click", appData.start)
         buttonPlus.addEventListener("click", appData.addScreenBlock)
     },
-    addTitle: function() {
-        document.title =title.textContent;
+    addTitle: function () {
+        document.title = title.textContent;
     },
 
     start: function () {
@@ -73,7 +65,7 @@ let appData = {
         fullTotalCount.value = appData.fullPrice
     },
 
-    addScreens: function() {
+    addScreens: function () {
         screens = document.querySelectorAll(".screen")
 
         screens.forEach(function (screen, index) {
@@ -90,22 +82,22 @@ let appData = {
         console.log(appData.screens);
     },
 
-    addServices: function() {
-      otherItemsPercent.forEach(function(item) {
-          const check = item.querySelector('input[type=checkbox]')
-          const label = item.querySelector('label')
-          const input = item.querySelector('input[type=text]')
-
-          if(check.checked){
-              appData.servicesPercent[label.textContent] = +input.value
-          }
-      })
-        otherItemsNumber.forEach(function(item) {
+    addServices: function () {
+        otherItemsPercent.forEach(function (item) {
             const check = item.querySelector('input[type=checkbox]')
             const label = item.querySelector('label')
             const input = item.querySelector('input[type=text]')
 
-            if(check.checked){
+            if (check.checked) {
+                appData.servicesPercent[label.textContent] = +input.value
+            }
+        })
+        otherItemsNumber.forEach(function (item) {
+            const check = item.querySelector('input[type=checkbox]')
+            const label = item.querySelector('label')
+            const input = item.querySelector('input[type=text]')
+
+            if (check.checked) {
                 appData.servicesNumber[label.textContent] = +input.value
             }
         })
@@ -117,49 +109,6 @@ let appData = {
         screens[screens.length - 1].after(cloneScreen);
     },
 
-    // asking: function () {
-    //     //appData.title =// prompt("Как назывется ваш проект?");
-    //     // do {
-    //     //     appData.title = prompt('Как называется ваш проект?', 'Калькулятор верстки')           //поменял название
-    //     // } while (appData.isString(appData.title));                                                                // поменял название
-    //
-    //
-    //     // for (let i = 0; i < 2; i++) {
-    //     //     let name                                                                                            //= prompt("Какие типы экранов нужно разработать?");
-    //     //     let price = 0;
-    //     //
-    //     //     do {
-    //     //         name = prompt("Какие типы экранов нужно разработать?");
-    //     //     } while (appData.isString(name))
-    //     //
-    //     //
-    //     //     do {
-    //     //         price = prompt("Сколько будет стоить данная работа?");
-    //     //     } while (!appData.isNumber(price));
-    //     //
-    //     //
-    //     //     appData.screens.push({id: i, name: name, price: price});                                             //можно сократить
-    //     // }
-    //
-    //     for (let i = 0; i < 2; i++) {
-    //         let name                                                                                            // = prompt("Какой дополнительный тип услуги нужен?");
-    //         let price = 0;
-    //
-    //         do {
-    //             name = prompt("Какой дополнительный тип услуги нужен?");
-    //         } while (appData.isString(appData.title))                                                            // поменял название
-    //
-    //
-    //         do {
-    //             price = prompt("Сколько это будет стоить?");
-    //         } while (!appData.isNumber(price));
-    //
-    //
-    //         appData.services[name] = +price;
-    //     }
-    //
-    //
-    // },
 
     addPrices: function () {
         for (let screen of appData.screens) {
@@ -171,7 +120,7 @@ let appData = {
         }
 
         for (let key in appData.servicesPercent) {
-            appData.ServicePricesPercent += appData.screenPrice * (appData.servicesPercent[key]/100)
+            appData.ServicePricesPercent += +appData.screenPrice * (appData.servicesPercent[key] / 100)
         }
         appData.fullPrice = +appData.screenPrice + appData.servicePricesNumber + appData.servicePricesPercent
 
@@ -181,9 +130,9 @@ let appData = {
     //     return !isNaN(parseFloat(num)) && isFinite(num);
     // },
 
-    isString: function (str) {
-        return !isNaN(parseFloat(str)) && isFinite(str);
-    },
+    // isString: function (str) {
+    //     return !isNaN(parseFloat(str)) && isFinite(str);
+    // },
 
     // getFullPrice: function () {
     // },
@@ -194,9 +143,6 @@ let appData = {
         );
     },
 
-    // getTitle: function () {
-    //     appData.title = appData.title.trim().charAt(0).toUpperCase() + appData.title.trim().substr(1).toLowerCase();
-    // },
 
     getRollbackMessage: function (price) {
         if (price >= 30000) {
@@ -212,10 +158,6 @@ let appData = {
 
 
     logger: function () {
-        // for (let key in appData) {
-        //     console.log(key + " " + appData[key]);
-        // }
-
         console.log(appData.fullPrice);
         console.log(appData.servicePercentPrice);
         console.log(appData.screens);
@@ -223,6 +165,9 @@ let appData = {
 };
 
 appData.init();
+
+
+
 
 
 
