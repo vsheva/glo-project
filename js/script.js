@@ -131,10 +131,9 @@ let appData = {
         //   appData.screensCount = appData.screensCount + +kew.count
         // }
 
-        for (let i=0; i<appData.screens.length; i++) {
+        for (let i = 0; i < appData.screens.length; i++) {
             appData.screensCount = appData.screensCount + appData.screens[i].count
         }
-
 
 
         for (let screen of appData.screens) {
@@ -189,16 +188,37 @@ appData.init();
 
 
 
-// appData.isNumber();
-// appData.asking();
 
-// appData.allServicePrices = getAllServicePrices();
-// appData.fullPrice = getFullPrice();
-// appData.servicePercentPrice = getServicePercentPrice();
-// appData.title = getTitle();
-//
-// console.log(appData.fullPrice);
-// console.log(appData.servicePercentPrice);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
