@@ -29,7 +29,7 @@ let appData = {
     servicesNumber: {},
     servicePricesPercent: 0,
     servicePricesNumber: 0,
-    screensCount: 0,                        //
+    screensCount: 0,
     rollback: 10,
     servicePercentPrice: 0,
     fullPrice: 0,
@@ -59,7 +59,6 @@ let appData = {
         // appData.logger();
         appData.showResult();
     },
-
 
     success: function () {
         screens = document.querySelectorAll(".screen")
@@ -128,9 +127,15 @@ let appData = {
     },
 
     addPrices: function () {
-        for (let kew of appData.screens) {
-          appData.screensCount +=  appData.screensCount;
+        // for (let kew of appData.screens) {
+        //   appData.screensCount = appData.screensCount + +kew.count
+        // }
+
+        for (let i=0; i<appData.screens.length; i++) {
+            appData.screensCount = appData.screensCount + appData.screens[i].count
         }
+
+
 
         for (let screen of appData.screens) {
             appData.screenPrice += +screen.price;
@@ -151,20 +156,6 @@ let appData = {
 
 
     },
-
-
-    // getRollbackMessage: function (price) {
-    //     if (price >= 30000) {
-    //         return "Даем скидку в 10%";
-    //     } else if (price >= 15000 && price < 30000) {
-    //         return "Даем скидку в 5%";
-    //     } else if (price >= 0 && price < 15000) {
-    //         return "Скидка не предусмотрена";
-    //     } else if (price < 0) {
-    //         return "Что то пошло не так";
-    //     }
-    // },
-
 
     logger: function () {
         console.log(appData.fullPrice);
