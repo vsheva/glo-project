@@ -43,7 +43,6 @@ let appData = {
             inputRangeValue.textContent = inputRange.value + "%";
             appData.rollback = inputRange.value
         })
-
     },
 
     addTitle: function () {
@@ -53,9 +52,8 @@ let appData = {
     start: function () {
         appData.addScreens()
         appData.addServices()
-        appData.addPrices();
+        appData.addPrices()
         appData.success()
-
         // appData.logger();
         appData.showResult();
     },
@@ -118,7 +116,6 @@ let appData = {
                 appData.servicesNumber[label.textContent] = +input.value
             }
         })
-
     },
 
     addScreenBlock: function () {
@@ -135,7 +132,6 @@ let appData = {
             appData.screensCount = appData.screensCount + appData.screens[i].count
         }
 
-
         for (let screen of appData.screens) {
             appData.screenPrice += +screen.price;
         }
@@ -149,11 +145,10 @@ let appData = {
         }
         appData.fullPrice = +appData.screenPrice + appData.servicePricesNumber + appData.servicePricesPercent
 
+
         // Стоимость за вычетом отката
 
         appData.servicePercentPrice = Math.ceil(appData.fullPrice - (appData.fullPrice * (appData.rollback / 100)))
-
-
     },
 
     logger: function () {
