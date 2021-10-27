@@ -29,6 +29,7 @@ let appData = {
     servicesNumber: {},
     servicePricesPercent: 0,
     servicePricesNumber: 0,
+    screensCount: 0,                        //
     rollback: 10,
     servicePercentPrice: 0,
     fullPrice: 0,
@@ -75,6 +76,7 @@ let appData = {
 
     showResult: function () {
         total.value = appData.screenPrice
+        totalCount.value = appData.screensCount
         totalCountOther.value = appData.servicePricesPercent + appData.servicePricesNumber
         fullTotalCount.value = appData.fullPrice
         totalCountRollback.value = appData.servicePercentPrice
@@ -92,7 +94,7 @@ let appData = {
                 id: index,
                 name: selectName,
                 price: +select.value * +input.value,
-                count:totalCount.value
+                count: +input.value
             })
         })
         console.log(appData.screens);
@@ -126,6 +128,10 @@ let appData = {
     },
 
     addPrices: function () {
+        for (let kew of appData.screens) {
+          appData.screensCount +=  appData.screensCount;
+        }
+
         for (let screen of appData.screens) {
             appData.screenPrice += +screen.price;
         }
@@ -147,17 +153,17 @@ let appData = {
     },
 
 
-    getRollbackMessage: function (price) {
-        if (price >= 30000) {
-            return "Даем скидку в 10%";
-        } else if (price >= 15000 && price < 30000) {
-            return "Даем скидку в 5%";
-        } else if (price >= 0 && price < 15000) {
-            return "Скидка не предусмотрена";
-        } else if (price < 0) {
-            return "Что то пошло не так";
-        }
-    },
+    // getRollbackMessage: function (price) {
+    //     if (price >= 30000) {
+    //         return "Даем скидку в 10%";
+    //     } else if (price >= 15000 && price < 30000) {
+    //         return "Даем скидку в 5%";
+    //     } else if (price >= 0 && price < 15000) {
+    //         return "Скидка не предусмотрена";
+    //     } else if (price < 0) {
+    //         return "Что то пошло не так";
+    //     }
+    // },
 
 
     logger: function () {
