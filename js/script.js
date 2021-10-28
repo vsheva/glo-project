@@ -73,13 +73,15 @@ let appData = {
                     } else {
                         startBtn.disabled = false
                     }
-        // screens = document.querySelectorAll(".screen")
-        // let select = document.querySelector("select[name=views-select]")
-        // let input =document.querySelector('.main-controls__input > input')
+
+
+        //
         //
         // for (let i=0; i<screens.length; i++) {
+        //     screens = document.querySelectorAll(".screen")
+        //     let select = document.querySelector("select[name=views-select]")
+        //     let input =document.querySelector('.main-controls__input > input')
         //
-        //     console.log(document.querySelector('.main-controls__input > input')[i])
         //     if (select[i].selectedIndex ===0  || input[i].value ==="") {
         //         startBtn.disabled = true
         //         break;
@@ -87,7 +89,11 @@ let appData = {
         //         startBtn.disabled = false
         //     }
         // }
-    })
+
+
+
+
+   })
     },
 
     showResult: function () {
