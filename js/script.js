@@ -58,16 +58,32 @@ let appData = {
         appData.showResult();
     },
 
+
+    // success: function () {
+    //     screens = document.querySelectorAll(".screen")
+    //
+    //     screens.forEach(function (element) {
+    //         if (element.selectedIndex === 0 || document.querySelector('input[type=text]').value === '') {
+    //             startBtn.disabled = true;
+    //         } else {
+    //             startBtn.disabled = false;
+    //         }
+    //     })
+    // },
+
+
     success: function () {
         screens = document.querySelectorAll(".screen")
+        let select = document.querySelector("select[name=views-select]")
 
-        screens.forEach(function (element) {
-            if (element.selectedIndex === 0 || document.querySelector('input[type=text]').value === '') {
-                startBtn.disabled = true;
+        for (let i=0; i<screens.length; i++) {
+            if (select[i].selectedIndex ===0  || document.querySelector('input[type=text]')[i].value ==="") {
+                startBtn.disabled = true
+                break;
             } else {
-                startBtn.disabled = false;
+                startBtn.disabled = false
             }
-        })
+        }
     },
 
 
