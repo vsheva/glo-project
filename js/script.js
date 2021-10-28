@@ -120,7 +120,9 @@ let appData = {
 
     addScreenBlock: function () {
         const cloneScreen = screens[0].cloneNode(true);
-        screens[screens.length - 1].after(cloneScreen);
+        //screens[screens.length - 1].after(cloneScreen);
+
+        buttonPlus.before(cloneScreen);
     },
 
     addPrices: function () {
