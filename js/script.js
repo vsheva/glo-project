@@ -34,6 +34,7 @@ let appData = {
     servicePercentPrice: 0,
     fullPrice: 0,
 
+
     init: function () {
         appData.addTitle();
         startBtn.addEventListener("click", appData.start)
@@ -59,33 +60,35 @@ let appData = {
     },
 
 
-    // success: function () {
-    //     screens = document.querySelectorAll(".screen")
-    //
-    //     screens.forEach(function (element) {
-    //         if (element.selectedIndex === 0 || document.querySelector('input[type=text]').value === '') {
-    //             startBtn.disabled = true;
-    //         } else {
-    //             startBtn.disabled = false;
-    //         }
-    //     })
-    // },
-
-
     success: function () {
-        screens = document.querySelectorAll(".screen")
-        let select = document.querySelector("select[name=views-select]")
 
-        for (let i=0; i<screens.length; i++) {
-            if (select[i].selectedIndex ===0  || document.querySelector('input[type=text]')[i].value ==="") {
-                startBtn.disabled = true
-                break;
-            } else {
-                startBtn.disabled = false
-            }
-        }
+        screens.forEach(function (screen, index) {
+               screens = document.querySelectorAll(".screen")
+                const select = screen.querySelector('select')
+                const input = screen.querySelector('input')
+
+            if  (select.selectedIndex === 0 || input.value === 0) {
+                        startBtn.disabled = true
+
+                    } else {
+                        startBtn.disabled = false
+                    }
+        // screens = document.querySelectorAll(".screen")
+        // let select = document.querySelector("select[name=views-select]")
+        // let input =document.querySelector('.main-controls__input > input')
+        //
+        // for (let i=0; i<screens.length; i++) {
+        //
+        //     console.log(document.querySelector('.main-controls__input > input')[i])
+        //     if (select[i].selectedIndex ===0  || input[i].value ==="") {
+        //         startBtn.disabled = true
+        //         break;
+        //     } else {
+        //         startBtn.disabled = false
+        //     }
+        // }
+    })
     },
-
 
     showResult: function () {
         total.value = appData.screenPrice
@@ -137,7 +140,6 @@ let appData = {
     addScreenBlock: function () {
         const cloneScreen = screens[0].cloneNode(true);
         //screens[screens.length - 1].after(cloneScreen);
-
         buttonPlus.before(cloneScreen);
     },
 
