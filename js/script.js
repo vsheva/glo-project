@@ -62,8 +62,25 @@ let appData = {
 
 
     success: function () {
-        return !this.screens.find( (item)=> item.price ===0);
-                                                                        //})
+
+        screens = document.querySelectorAll(".screen")
+
+        screens.forEach(function (screen) {
+            const select = screen.querySelector('select')
+            const input = screen.querySelector('input')
+
+
+            if (select.selectedIndex == 0 || input.value == "") {
+                startBtn.disabled = true;
+            } else {
+                startBtn.disabled = false;
+            }
+        })
+
+
+
+            //return !this.screens.find( (item)=> item.price ==0);
+        //})
     },
 
     showResult: function () {
@@ -122,7 +139,7 @@ let appData = {
     addPrices: function () {
 
         for (let i = 0; i < appData.screens.length; i++) {
-            appData.screensCount = appData.screensCount + appData.screens[i].count
+            appData.screensCount = appData.screensCount + appData.screens[i].count            //подсчет количества экранов
         }
 
         for (let screen of appData.screens) {
@@ -203,44 +220,6 @@ appData.init();
 
 
 
-
-
-
-
-
-
-
-
-
-// screens.forEach(function (screen, index) {
-//        screens = document.querySelectorAll(".screen")
-//         const select = screen.querySelector('select')
-//         const input = screen.querySelector('input')
-
-// if  (select.selectedIndex == 0 || input.value == 0) {
-//             startBtn.disabled = true
-//
-//         } else {
-//             startBtn.disabled = false
-//         }
-
-
-
-
-//
-//
-// for (let i=0; i<screens.length; i++) {
-//     screens = document.querySelectorAll(".screen")
-//     let select = document.querySelector("select[name=views-select]")
-//     let input =document.querySelector('.main-controls__input > input')
-//
-//     if (select[i].selectedIndex ===0  || input[i].value ==="") {
-//         startBtn.disabled = true
-//         break;
-//     } else {
-//         startBtn.disabled = false
-//     }
-// }
 
 
 
