@@ -41,6 +41,7 @@ let appData = {
         buttonPlus.addEventListener("click", appData.addScreenBlock)
 
         inputRange.addEventListener("input", function () {
+
             inputRangeValue.textContent = inputRange.value + "%";
             appData.rollback = inputRange.value
         })
@@ -61,39 +62,8 @@ let appData = {
 
 
     success: function () {
-
-        screens.forEach(function (screen, index) {
-               screens = document.querySelectorAll(".screen")
-                const select = screen.querySelector('select')
-                const input = screen.querySelector('input')
-
-            if  (select.selectedIndex === 0 || input.value === 0) {
-                        startBtn.disabled = true
-
-                    } else {
-                        startBtn.disabled = false
-                    }
-
-
-        //
-        //
-        // for (let i=0; i<screens.length; i++) {
-        //     screens = document.querySelectorAll(".screen")
-        //     let select = document.querySelector("select[name=views-select]")
-        //     let input =document.querySelector('.main-controls__input > input')
-        //
-        //     if (select[i].selectedIndex ===0  || input[i].value ==="") {
-        //         startBtn.disabled = true
-        //         break;
-        //     } else {
-        //         startBtn.disabled = false
-        //     }
-        // }
-
-
-
-
-   })
+        return !this.screens.find( (item)=> item.price ===0);
+                                                                        //})
     },
 
     showResult: function () {
@@ -150,9 +120,6 @@ let appData = {
     },
 
     addPrices: function () {
-        // for (let kew of appData.screens) {
-        //   appData.screensCount = appData.screensCount + +kew.count
-        // }
 
         for (let i = 0; i < appData.screens.length; i++) {
             appData.screensCount = appData.screensCount + appData.screens[i].count
@@ -174,7 +141,7 @@ let appData = {
 
         // Стоимость за вычетом отката
 
-        appData.servicePercentPrice = Math.ceil(appData.fullPrice - (appData.fullPrice * (appData.rollback / 100)))
+        appData.servicePercentPrice = appData.fullPrice - (appData.fullPrice * (appData.rollback / 100))
     },
 
     logger: function () {
@@ -243,6 +210,37 @@ appData.init();
 
 
 
+
+
+// screens.forEach(function (screen, index) {
+//        screens = document.querySelectorAll(".screen")
+//         const select = screen.querySelector('select')
+//         const input = screen.querySelector('input')
+
+// if  (select.selectedIndex == 0 || input.value == 0) {
+//             startBtn.disabled = true
+//
+//         } else {
+//             startBtn.disabled = false
+//         }
+
+
+
+
+//
+//
+// for (let i=0; i<screens.length; i++) {
+//     screens = document.querySelectorAll(".screen")
+//     let select = document.querySelector("select[name=views-select]")
+//     let input =document.querySelector('.main-controls__input > input')
+//
+//     if (select[i].selectedIndex ===0  || input[i].value ==="") {
+//         startBtn.disabled = true
+//         break;
+//     } else {
+//         startBtn.disabled = false
+//     }
+// }
 
 
 
