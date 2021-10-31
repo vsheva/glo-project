@@ -30,7 +30,7 @@ let appData = {
     servicePricesPercent: 0,
     servicePricesNumber: 0,
     screensCount: 0,
-    rollback: 10,
+    rollback: 0,
     servicePercentPrice: 0,
     fullPrice: 0,
 
@@ -78,10 +78,11 @@ let appData = {
         })
 
 
+        //return !this.screens.find( (item)=> item.price ==0);
 
-            //return !this.screens.find( (item)=> item.price ==0);
-        //})
+
     },
+
 
     showResult: function () {
         total.value = appData.screenPrice
