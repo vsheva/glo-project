@@ -55,20 +55,20 @@ let appData = {
         appData.addScreens()
         appData.addServices()
         appData.addPrices()
-        appData.success()
+        //appData.success()
         // appData.logger();
         appData.showResult();
 
     },
 
 
-    success: function () {
-
-        screens = document.querySelectorAll(".screen")
-
-        screens.forEach(function (screen) {
-            const select = screen.querySelector('select')
-            const input = screen.querySelector('input')
+    // success: function () {
+    //
+    //     screens = document.querySelectorAll(".screen")
+    //
+    //     screens.forEach(function (screen) {
+    //         const select = screen.querySelector('select')
+    //         const input = screen.querySelector('input')
 
 
             // if (select.selectedIndex == 0 || input.value === "") {
@@ -77,13 +77,13 @@ let appData = {
             //     startBtn.disabled = false;
             // }
 
-            if (select.selectedIndex === 0) {
-                alert("Выберите не менее одного типа экрана ");
-            } else if (input.value === "") {
-                alert("Укажите количество экранов");
-            }
-        })
-    },
+    //         if (select.selectedIndex === 0) {
+    //             alert("Выберите не менее одного типа экрана ");
+    //         } else if (input.value === "") {
+    //             alert("Укажите количество экранов");
+    //         }
+    //     })
+    // },
 
 
     showResult: function () {
@@ -102,12 +102,20 @@ let appData = {
             const input = screen.querySelector('input')
             const selectName = select.options[select.selectedIndex].textContent
 
-            appData.screens.push({
-                id: index,
-                name: selectName,
-                price: +select.value * +input.value,
-                count: +input.value
-            })
+            if (select.selectedIndex === 0) {
+                alert("Выберите хотя бы один тип экрана ");
+            } else if (input.value === "") {
+                alert("Укажите количество экранов");
+            } else {
+                appData.screens.push({
+                    id: index,
+                    name: selectName,
+                    price: +select.value * +input.value,
+                    count: +input.value
+                })
+            }
+
+
         })
         console.log(appData.screens);
     },
