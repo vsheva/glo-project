@@ -102,6 +102,8 @@ let appData = {
             const input = screen.querySelector('input')
             const selectName = select.options[select.selectedIndex].textContent
 
+            // проверка выбора экрана и количества
+
             if (select.selectedIndex === 0) {
                 alert("Выберите хотя бы один тип экрана ");
             } else if (input.value === "") {
