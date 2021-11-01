@@ -71,11 +71,11 @@ let appData = {
     //         const input = screen.querySelector('input')
 
 
-            // if (select.selectedIndex == 0 || input.value === "") {
-            //     startBtn.disabled = true;
-            // } else {
-            //     startBtn.disabled = false;
-            // }
+    // if (select.selectedIndex == 0 || input.value === "") {
+    //     startBtn.disabled = true;
+    // } else {
+    //     startBtn.disabled = false;
+    // }
 
     //         if (select.selectedIndex === 0) {
     //             alert("Выберите не менее одного типа экрана ");
@@ -116,7 +116,6 @@ let appData = {
                     count: +input.value
                 })
             }
-
 
         })
         console.log(appData.screens);
