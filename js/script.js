@@ -58,6 +58,7 @@ let appData = {
         appData.success()
         // appData.logger();
         appData.showResult();
+
     },
 
 
@@ -70,17 +71,18 @@ let appData = {
             const input = screen.querySelector('input')
 
 
-            if (select.selectedIndex == 0 || input.value == "") {
-                startBtn.disabled = true;
-            } else {
-                startBtn.disabled = false;
+            // if (select.selectedIndex == 0 || input.value === "") {
+            //     startBtn.disabled = true;
+            // } else {
+            //     startBtn.disabled = false;
+            // }
+
+            if (select.selectedIndex === 0) {
+                alert("Выберите не менее одного типа экрана ");
+            } else if (input.value === "") {
+                alert("Укажите количество экранов");
             }
         })
-
-
-        //return !this.screens.find( (item)=> item.price ==0);
-
-
     },
 
 
