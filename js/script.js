@@ -119,7 +119,7 @@ const appData = {
 
     addScreenBlock: function()  {
         const cloneScreen = screens[0].cloneNode(true);
-        screens[screens.length - 1].after(cloneScreen);
+        btnPlus.before(cloneScreen);
     },
 
 
