@@ -33,7 +33,7 @@ const appData = {
     servicePercentPrice: 0,
 
 
-    init:  () => {
+    init:  function()  {
         appData.addTitle();
         inputRange.addEventListener("input", appData.addInputRange);
         btnStart.addEventListener("click", appData.start);
@@ -45,12 +45,12 @@ const appData = {
     //     return !this.screens.find( function(item) {item.price ===0});
     // },
 
-    addTitle: () => {
+    addTitle: function()  {
         document.title = title.textContent;
     },
 
 
-    start: () => {
+    start: function() {
         appData.addScreens();
         // if (appData.checkScreenFields()) {
             appData.addServices();
@@ -62,7 +62,7 @@ const appData = {
     },
 
 
-    showResult: ()=> {
+    showResult: function() {
         total.value = appData.screenPrice;
         totalCount.value = appData.countScreens;
         totalCountOther.value =
@@ -73,7 +73,7 @@ const appData = {
 
 
 
-    addScreens: () => {
+    addScreens: function()  {
         screens = document.querySelectorAll(".screen");
 
         screens.forEach(function (screen, index) {
@@ -98,7 +98,7 @@ const appData = {
     },
 
 
-    addServices: () => {
+    addServices: function()  {
         otherItemsPercent.forEach(function (item) {
             const check = item.querySelector("input[type=checkbox]");
             const label = item.querySelector("label");
@@ -121,20 +121,20 @@ const appData = {
     },
 
 
-    addScreenBlock: () => {
+    addScreenBlock: function()  {
         const cloneScreen = screens[0].cloneNode(true);
         screens[screens.length - 1].after(cloneScreen);
     },
 
 
-    addInputRange: () => {
+    addInputRange: function() {
         inputRangeValue.textContent = inputRange.value + "%";
         appData.rollback = inputRange.value;
     },
 
 
     //сумма допуслуг
-    addPrices:  () =>{
+    addPrices:  function(){
         for (let screen of appData.screens) {
             appData.screenPrice += +screen.price;
         }
