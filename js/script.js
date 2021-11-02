@@ -41,9 +41,9 @@ const appData = {
     },
 
 
-    // checkScreenFields: function () {
-    //     return !this.screens.find( function(item) {item.price ===0});
-    // },
+    checkScreenFields: function () {
+        return !this.screens.find( function(item) {return item.price ===0});
+    },
 
     addTitle: function()  {
         document.title = title.textContent;
@@ -52,13 +52,15 @@ const appData = {
 
     start: function() {
         appData.addScreens();
-        // if (appData.checkScreenFields()) {
+        if (appData.checkScreenFields()) {
             appData.addServices();
             appData.addPrices();
             // appData.getServicePercentPrice();
             // appData.logger();
             appData.showResult();
-        // }
+        } else {
+            alert("Заполните все поля правильно")
+        }
     },
 
 
@@ -81,11 +83,6 @@ const appData = {
             const input = screen.querySelector("input");
             const selectName = select.options[select.selectedIndex].textContent;
 
-            if (select.selectedIndex === 0) {
-                alert("Выберите хоть один тип экрана ");
-            } else if (input.value === "") {
-                alert("Укажите количество экранов");
-            } else {
                 appData.screens.push({
                     id: index,
                     name: selectName,
@@ -93,7 +90,6 @@ const appData = {
                 });
 
                 appData.count[selectName] = +input.value;
-            }
         });
     },
 
