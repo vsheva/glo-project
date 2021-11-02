@@ -41,6 +41,9 @@ const appData = {
     },
 
 
+    checkScreenFields: function () {
+        return !this.screens.find( function(item) {item.price ===0});
+    },
 
     addTitle: function () {
         document.title = title.textContent;
@@ -49,11 +52,13 @@ const appData = {
 
     start: function () {
         appData.addScreens();
-        appData.addServices();
-        appData.addPrices();
-        // appData.getServicePercentPrice();
-        // appData.logger();
-        appData.showResult();
+        if (appData.checkScreenFields()) {
+            appData.addServices();
+            appData.addPrices();
+            // appData.getServicePercentPrice();
+            // appData.logger();
+            appData.showResult();
+        }
     },
 
 
