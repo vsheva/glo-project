@@ -33,7 +33,7 @@ const appData = {
     servicePercentPrice: 0,
 
 
-    init: function () {
+    init:  () => {
         appData.addTitle();
         inputRange.addEventListener("input", appData.addInputRange);
         btnStart.addEventListener("click", appData.start);
@@ -41,28 +41,28 @@ const appData = {
     },
 
 
-    checkScreenFields: function () {
-        return !this.screens.find( function(item) {item.price ===0});
-    },
+    // checkScreenFields: function () {
+    //     return !this.screens.find( function(item) {item.price ===0});
+    // },
 
-    addTitle: function () {
+    addTitle: () => {
         document.title = title.textContent;
     },
 
 
-    start: function () {
+    start: () => {
         appData.addScreens();
-        if (appData.checkScreenFields()) {
+        // if (appData.checkScreenFields()) {
             appData.addServices();
             appData.addPrices();
             // appData.getServicePercentPrice();
             // appData.logger();
             appData.showResult();
-        }
+        // }
     },
 
 
-    showResult: function () {
+    showResult: ()=> {
         total.value = appData.screenPrice;
         totalCount.value = appData.countScreens;
         totalCountOther.value =
@@ -73,7 +73,7 @@ const appData = {
 
 
 
-    addScreens: function () {
+    addScreens: () => {
         screens = document.querySelectorAll(".screen");
 
         screens.forEach(function (screen, index) {
@@ -98,7 +98,7 @@ const appData = {
     },
 
 
-    addServices: function () {
+    addServices: () => {
         otherItemsPercent.forEach(function (item) {
             const check = item.querySelector("input[type=checkbox]");
             const label = item.querySelector("label");
@@ -121,20 +121,20 @@ const appData = {
     },
 
 
-    addScreenBlock: function () {
+    addScreenBlock: () => {
         const cloneScreen = screens[0].cloneNode(true);
         screens[screens.length - 1].after(cloneScreen);
     },
 
 
-    addInputRange: function () {
+    addInputRange: () => {
         inputRangeValue.textContent = inputRange.value + "%";
         appData.rollback = inputRange.value;
     },
 
 
     //сумма допуслуг
-    addPrices: function () {
+    addPrices:  () =>{
         for (let screen of appData.screens) {
             appData.screenPrice += +screen.price;
         }
