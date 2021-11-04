@@ -15,6 +15,10 @@ const totalCountOther = document.getElementsByClassName("total-input")[2];
 const totalFullCount = document.getElementsByClassName("total-input")[3];
 const totalCountRollback = document.getElementsByClassName("total-input")[4];
 
+let leftInputs = document.querySelectorAll("div.main-controls__views element input[type=text]");
+let  select = document.querySelector("div.screen .select");
+
+
 let screens = document.querySelectorAll(".screen");
 
 const appData = {
@@ -38,6 +42,7 @@ const appData = {
         inputRange.addEventListener("input", appData.addInputRange.bind(this));
         btnStart.addEventListener("click", appData.start.bind(this));
         btnPlus.addEventListener("click", appData.addScreenBlock.bind(this));
+        btnReset.addEventListener("click", appData.reset.bind(this));
     },
 
 
@@ -51,16 +56,21 @@ const appData = {
 
 
     start: function() {
+        btnStart.style.display == "none";
+        btnReset.style.display == "block"
         this.addScreens();
+
         if (this.checkScreenFields()) {
             this.addServices();
             this.addPrices();
             // appData.getServicePercentPrice();
             // appData.logger();
             this.showResult();
+
         } else {
             alert("Заполните все поля правильно")
         }
+        this.allDisabled();
     },
 
 
@@ -74,28 +84,92 @@ const appData = {
     },
 
 
+    //// восстанавливаю все свойства обьекта к начальному
+
+    clear: function() {
+            this.title= "",
+            this.screens= [],
+            this.screenPrice= 0,
+            this.adaptive= true,
+            this.rollback= 0,
+            this.count= {},
+            this.countScreens= 0,
+            this.servicesPercent= {},
+            this.servicesNumber= {},
+            this.servicePricesPercent= 0,
+            this. servicePricesNumber= 0,
+            this.fullPrice= 0,
+            this.servicePercentPrice= 0
+    },
+
+    reset: function() {
+    this.clear();
+        screens = document.querySelectorAll(".screen");
+
+        for( let i=0; i<screens.length; i++ ) {
+            screens[i].remove();
+        }
+
+        screens[0].querySelector('input').value = '';
+        screens[0].querySelector('select').options[0].selected = true;
+
+        btnStart.style.display == "block";
+        btnReset.style.display == "none"
+
+        this.allDisabled(); //
+        this.showResult();
+        inputRange.value = 0;
+        inputRangeValue.textContent = inputRange.value + "%";
+
+    },
+
+
+
+
+
+
+///////////////////////////////// пункт 3 задания   ////////////////////////////////////////
+  allDisabled: function() {
+       select = document.querySelector(".select")
+
+      if(btnStart.style.display == "none") {
+          select.forEach((element)=>{
+              element.querySelector(".select").disabled=true;
+              element.querySelector('input[type=text]').disabled = true;
+          })
+
+      } else if (btnStart.style.display = "block") {
+          select.forEach((element)=>{
+              element.querySelector(".select").disabled=false;
+              element.querySelector('input[type=text]').disabled = false;
+          })
+      }
+  },
+
+////////////////////////////////////////////////////////////////
 
     addScreens: function()  {
         screens = document.querySelectorAll(".screen");
+        appData.screens.length = 0 ;
 
-        screens.forEach(function (screen, index) {
+        screens.forEach( (screen, index) => {
             const select = screen.querySelector("select");
             const input = screen.querySelector("input");
             const selectName = select.options[select.selectedIndex].textContent;
 
-            appData.screens.push({
+            this.screens.push({
                 id: index,
                 name: selectName,
                 price: +select.value * +input.value,
             });
 
-            appData.count[selectName] = +input.value;
+            this.count[selectName] = +input.value;
         });
     },
 
 
     addServices: function()  {
-        otherItemsPercent.forEach(function (item) {
+        otherItemsPercent.forEach( (item) => {
             const check = item.querySelector("input[type=checkbox]");
             const label = item.querySelector("label");
             const input = item.querySelector("input[type=text]");
@@ -105,7 +179,7 @@ const appData = {
             }
         });
 
-        otherItemsNumber.forEach(function (item) {
+        otherItemsNumber.forEach((item) => {
             const check = item.querySelector("input[type=checkbox]");
             const label = item.querySelector("label");
             const input = item.querySelector("input[type=text]");
