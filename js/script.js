@@ -66,11 +66,12 @@ const appData = {
             // appData.getServicePercentPrice();
             // appData.logger();
             this.showResult();
+            this.allDisabled();
 
         } else {
             alert("Заполните все поля правильно")
         }
-        this.allDisabled();
+
     },
 
 
@@ -138,7 +139,7 @@ const appData = {
               element.querySelector('input[type=text]').disabled = true;
           })
 
-      } else if (btnStart.style.display = "block") {
+      } else if (btnStart.style.display == "block") {
           select.forEach((element)=>{
               element.querySelector(".select").disabled=false;
               element.querySelector('input[type=text]').disabled = false;
