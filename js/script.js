@@ -56,11 +56,11 @@ const appData = {
 
 
     start: function() {
-        btnStart.style.display = "none";
-        btnReset.style.display = "block"
         this.addScreens();
 
         if (this.checkScreenFields()) {
+            btnStart.style.display = "none";
+            btnReset.style.display = "block"
             this.addServices();
             this.addPrices();
             // appData.getServicePercentPrice();
@@ -104,10 +104,11 @@ const appData = {
     },
 
     reset: function() {
+
     this.clear();
         screens = document.querySelectorAll(".screen");
 
-        for( let i=0; i<screens.length; i++ ) {
+        for( let i=1; i<screens.length; i++ ) {
             screens[i].remove();
         }
 
