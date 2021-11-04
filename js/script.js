@@ -56,8 +56,8 @@ const appData = {
 
 
     start: function() {
-        btnStart.style.display == "none";
-        btnReset.style.display == "block"
+        btnStart.style.display = "none";
+        btnReset.style.display = "block"
         this.addScreens();
 
         if (this.checkScreenFields()) {
@@ -114,8 +114,8 @@ const appData = {
         screens[0].querySelector('input').value = '';
         screens[0].querySelector('select').options[0].selected = true;
 
-        btnStart.style.display == "block";
-        btnReset.style.display == "none"
+        btnStart.style.display = "block";
+        btnReset.style.display = "none"
 
         this.allDisabled(); //
         this.showResult();
@@ -131,18 +131,19 @@ const appData = {
 
 ///////////////////////////////// пункт 3 задания   ////////////////////////////////////////
   allDisabled: function() {
-       select = document.querySelector(".select")
+       //select = document.querySelector("select")
+       screens = document.querySelectorAll(".screen");
 
-      if(btnStart.style.display == "none") {
-          select.forEach((element)=>{
-              element.querySelector(".select").disabled=true;
-              element.querySelector('input[type=text]').disabled = true;
+      if(btnStart.style.display = "none") {
+          screens.forEach((element)=>{
+              element.querySelector("select").setAttribute("disabled", "true");
+              element.querySelector('input[type=text]').setAttribute("disabled", "true");;
           })
 
-      } else if (btnStart.style.display == "block") {
-          select.forEach((element)=>{
-              element.querySelector(".select").disabled=false;
-              element.querySelector('input[type=text]').disabled = false;
+      } else if (btnStart.style.display = "block") {
+          screens.forEach((element)=>{
+              element.querySelector("select").removeAttribute("disabled");
+              element.querySelector('input[type=text]').removeAttribute("disabled");;
           })
       }
   },
