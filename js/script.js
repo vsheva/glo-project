@@ -16,7 +16,7 @@ const totalFullCount = document.getElementsByClassName("total-input")[3];
 const totalCountRollback = document.getElementsByClassName("total-input")[4];
 
 let leftInputs = document.querySelectorAll("div.main-controls__views element input[type=text]");
-let  select = document.querySelector("div.screen .select");
+let select = document.querySelector("div.screen .select");
 
 
 let screens = document.querySelectorAll(".screen");
@@ -37,7 +37,7 @@ const appData = {
     servicePercentPrice: 0,
 
 
-    init:  function()  {
+    init: function () {
         appData.addTitle();
         inputRange.addEventListener("input", appData.addInputRange.bind(this));
         btnStart.addEventListener("click", appData.start.bind(this));
@@ -47,15 +47,17 @@ const appData = {
 
 
     checkScreenFields: function () {
-        return !this.screens.find( function(item) {return item.price ===0});
+        return !this.screens.find(function (item) {
+            return item.price === 0
+        });
     },
 
-    addTitle: function()  {
+    addTitle: function () {
         document.title = title.textContent;
     },
 
 
-    start: function() {
+    start: function () {
         this.addScreens();
 
         if (this.checkScreenFields()) {
@@ -75,7 +77,7 @@ const appData = {
     },
 
 
-    showResult: function() {
+    showResult: function () {
         total.value = this.screenPrice;
         totalCount.value = this.countScreens;
         totalCountOther.value =
@@ -87,28 +89,28 @@ const appData = {
 
     //// восстанавливаю все свойства обьекта к начальному
 
-    clear: function() {
-            this.title= "",
-            this.screens= [],
-            this.screenPrice= 0,
-            this.adaptive= true,
-            this.rollback= 0,
-            this.count= {},
-            this.countScreens= 0,
-            this.servicesPercent= {},
-            this.servicesNumber= {},
-            this.servicePricesPercent= 0,
-            this. servicePricesNumber= 0,
-            this.fullPrice= 0,
-            this.servicePercentPrice= 0
+    clear: function () {
+        this.title = "",
+            this.screens = [],
+            this.screenPrice = 0,
+            this.adaptive = true,
+            this.rollback = 0,
+            this.count = {},
+            this.countScreens = 0,
+            this.servicesPercent = {},
+            this.servicesNumber = {},
+            this.servicePricesPercent = 0,
+            this.servicePricesNumber = 0,
+            this.fullPrice = 0,
+            this.servicePercentPrice = 0
     },
 
-    reset: function() {
+    reset: function () {
 
-    this.clear();
+        this.clear();
         screens = document.querySelectorAll(".screen");
 
-        for( let i=1; i<screens.length; i++ ) {
+        for (let i = 1; i < screens.length; i++) {
             screens[i].remove();
         }
 
@@ -126,36 +128,34 @@ const appData = {
     },
 
 
-
-
-
-
 ///////////////////////////////// пункт 3 задания   ////////////////////////////////////////
-  allDisabled: function() {
-       //select = document.querySelector("select")
-       screens = document.querySelectorAll(".screen");
+    allDisabled: function () {
+        //select = document.querySelector("select")
+        screens = document.querySelectorAll(".screen");
 
-      if(btnStart.style.display = "none") {
-          screens.forEach((element)=>{
-              element.querySelector("select").setAttribute("disabled", "true");
-              element.querySelector('input[type=text]').setAttribute("disabled", "true");;
-          })
+        if (btnStart.style.display = "none") {
+            screens.forEach((element) => {
+                element.querySelector("select").setAttribute("disabled", "true");
+                element.querySelector('input[type=text]').setAttribute("disabled", "true");
+                ;
+            })
 
-      } else if (btnStart.style.display = "block") {
-          screens.forEach((element)=>{
-              element.querySelector("select").removeAttribute("disabled");
-              element.querySelector('input[type=text]').removeAttribute("disabled");;
-          })
-      }
-  },
+        } else if (btnStart.style.display = "block") {
+            screens.forEach((element) => {
+                element.querySelector("select").removeAttribute("disabled");
+                element.querySelector('input[type=text]').removeAttribute("disabled");
+                ;
+            })
+        }
+    },
 
 ////////////////////////////////////////////////////////////////
 
-    addScreens: function()  {
+    addScreens: function () {
         screens = document.querySelectorAll(".screen");
-        appData.screens.length = 0 ;
+        appData.screens.length = 0;
 
-        screens.forEach( (screen, index) => {
+        screens.forEach((screen, index) => {
             const select = screen.querySelector("select");
             const input = screen.querySelector("input");
             const selectName = select.options[select.selectedIndex].textContent;
@@ -171,8 +171,8 @@ const appData = {
     },
 
 
-    addServices: function()  {
-        otherItemsPercent.forEach( (item) => {
+    addServices: function () {
+        otherItemsPercent.forEach((item) => {
             const check = item.querySelector("input[type=checkbox]");
             const label = item.querySelector("label");
             const input = item.querySelector("input[type=text]");
@@ -188,26 +188,26 @@ const appData = {
             const input = item.querySelector("input[type=text]");
 
             if (check.checked) {
-               this.servicesNumber[label.textContent] = +input.value;
+                this.servicesNumber[label.textContent] = +input.value;
             }
         });
     },
 
 
-    addScreenBlock: function()  {
+    addScreenBlock: function () {
         const cloneScreen = screens[0].cloneNode(true);
         btnPlus.before(cloneScreen);
     },
 
 
-    addInputRange: function() {
+    addInputRange: function () {
         inputRangeValue.textContent = inputRange.value + "%";
         this.rollback = inputRange.value;
     },
 
 
     //сумма допуслуг
-    addPrices:  function(){
+    addPrices: function () {
         for (let screen of this.screens) {
             this.screenPrice += +screen.price;
         }
@@ -247,6 +247,64 @@ const appData = {
 };
 
 appData.init();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
