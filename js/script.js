@@ -110,15 +110,30 @@ const appData = {
         this.clear();
         screens = document.querySelectorAll(".screen");
 
+        if (btnStart.style.display = "none") {
+            screens.forEach((element) => {
+                element.querySelector("select").removeAttribute("disabled");
+                element.querySelector('input[type=text]').removeAttribute("disabled");
+                ;
+            })
+        }
+
+         btnStart.style.display = "block";
+         btnReset.style.display = "none"
+
+
+        let checkItems=  document.querySelectorAll(".main-controls__checkbox input[type=checkbox]:checked");
+        for (let i in checkItems)
+            if (checkItems[i].type=="checkbox") checkItems[i].checked=false;
+
+
         for (let i = 1; i < screens.length; i++) {
             screens[i].remove();
         }
-
-        screens[0].querySelector('input').value = '';
-        screens[0].querySelector("input").placeholder = "Количество экранов";
-        screens[0].querySelector('select').options[0].selected = true;
-        btnStart.style.display = "block";
-        btnReset.style.display = "none"
+        //
+        // screens[0].querySelector('input').value = '';
+        // screens[0].querySelector("input").placeholder = "Количество экранов";
+        // screens[0].querySelector('select').options[0].selected = true;
 
         //this.allDisabled(); //
         this.showResult();
