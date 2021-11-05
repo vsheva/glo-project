@@ -122,6 +122,7 @@ const appData = {
          btnReset.style.display = "none"
 
         document.querySelector('input[type=text]').value = 0;
+        screens[0].querySelector("select").options[0].selected = true;
 
         let checkItems=  document.querySelectorAll(".main-controls__checkbox input[type=checkbox]:checked");
         for (let i in checkItems)
