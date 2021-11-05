@@ -115,12 +115,12 @@ const appData = {
         }
 
         screens[0].querySelector('input').value = '';
+        screens[0].querySelector("input").placeholder = "Количество экранов";
         screens[0].querySelector('select').options[0].selected = true;
-
         btnStart.style.display = "block";
         btnReset.style.display = "none"
 
-        this.allDisabled(); //
+        //this.allDisabled(); //
         this.showResult();
         inputRange.value = 0;
         inputRangeValue.textContent = inputRange.value + "%";
